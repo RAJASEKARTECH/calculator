@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+}
+
+.calculator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.calculator {
+  background: rgba(20, 20, 40, 0.8);
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 0 30px rgba(0, 255, 231, 0.3),
+              0 0 60px rgba(0, 255, 231, 0.1);
+  width: 100%;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 255, 231, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: glow 5s infinite ease-in-out;
+}
+
+.calculator:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 40px rgba(0, 255, 231, 0.4),
+              0 0 80px rgba(0, 255, 231, 0.15);
+}
+
+.title {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #00ffe7;
+  text-shadow: 0 0 10px rgba(0, 255, 231, 0.5);
+  letter-spacing: 2px;
+}
+
+.display-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.display {
+  height: 80px;
+  width: 100%;
+  background: rgba(10, 10, 20, 0.7);
+  color: #00ffe7;
+  font-size: 2.5em;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: right;
+  overflow-x: auto;
+  font-family: 'Orbitron', sans-serif;
+  border: 1px solid rgba(0, 255, 231, 0.3);
+  box-shadow: inset 0 0 15px rgba(0, 255, 231, 0.1);
+  text-shadow: 0 0 5px rgba(0, 255, 231, 0.5);
+  transition: all 0.3s;
+}
+
+.display:hover {
+  box-shadow: inset 0 0 20px rgba(0, 255, 231, 0.2);
+}
+
+.history {
+  position: absolute;
+  top: -25px;
+  right: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9em;
+  font-family: 'Roboto', sans-serif;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+button {
+  padding: 18px;
+  font-size: 1.3em;
+  border: none;
+  border-radius: 12px;
+  background: rgba(61, 64, 96, 0.7);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.operator {
+  color: #ff3d67;
+  background: rgba(61, 64, 96, 0.9);
+}
+
+.equal {
+  background: linear-gradient(135deg, #00ffe7, #00c9ff);
+  color: #1e1e2f;
+  font-weight: bold;
+}
+
+.equal:hover {
+  background: linear-gradient(135deg, #00d6c9, #00b4e6);
+}
+
+.special {
+  background: rgba(80, 80, 120, 0.7);
+}
+
+.footer {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9em;
+  margin-top: 20px;
+}
+
+.theme-toggle {
+  background: rgba(61, 64, 96, 0.7);
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+  background: rgba(0, 255, 231, 0.7);
+  color: #1e1e2f;
+}
+
+@media(max-width: 480px) {
+  .calculator-container {
+    padding: 0 20px;
+  }
+  
+  .calculator {
+    padding: 20px;
+  }
+
+  button {
+    padding: 15px;
+    font-size: 1.1em;
+  }
+
+  .display {
+    height: 70px;
+    font-size: 2em;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(0, 255, 231, 0.3),
+                0 0 60px rgba(0, 255, 231, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 231, 0.5),
+                0 0 80px rgba(0, 255, 231, 0.2);
+  }
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(0, 255, 231, 0.5);
+  border-radius: 50%;
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+  }
+}

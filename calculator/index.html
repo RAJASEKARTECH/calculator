@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neon Glow Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="particles" id="particles"></div>
+  
+  <div class="calculator-container">
+    <h1 class="title">NEBULA CALCULATOR</h1>
+    
+    <div class="calculator">
+      <div class="display-container">
+        <div class="history" id="history"></div>
+        <div class="display" id="display">0</div>
+      </div>
+      
+      <div class="buttons">
+        <button onclick="clearDisplay()" class="special">AC</button>
+        <button onclick="deleteLast()" class="special">⌫</button>
+        <button onclick="append('%')" class="operator">%</button>
+        <button onclick="append('/')" class="operator">÷</button>
+
+        <button onclick="append('7')">7</button>
+        <button onclick="append('8')">8</button>
+        <button onclick="append('9')">9</button>
+        <button onclick="append('*')" class="operator">×</button>
+
+        <button onclick="append('4')">4</button>
+        <button onclick="append('5')">5</button>
+        <button onclick="append('6')">6</button>
+        <button onclick="append('-')" class="operator">−</button>
+
+        <button onclick="append('1')">1</button>
+        <button onclick="append('2')">2</button>
+        <button onclick="append('3')">3</button>
+        <button onclick="append('+')" class="operator">+</button>
+
+        <button onclick="append('0')">0</button>
+        <button onclick="append('.')">.</button>
+        <button onclick="calculate()" class="equal">=</button>
+      </div>
+      
+      <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    </div>
+    
+    <div class="footer">
+      <p>Scientific functions coming soon!</p>
+      <p>© 2023 Nebula Calculator | v2.0</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
